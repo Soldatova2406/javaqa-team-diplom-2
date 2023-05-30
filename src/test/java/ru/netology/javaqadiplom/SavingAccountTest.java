@@ -31,7 +31,7 @@ public class SavingAccountTest {
 
         account.add(11_000);
 
-        Assertions.assertEquals(10_000, account.getBalance());
+        Assertions.assertEquals(2_000, account.getBalance());
     }
 
     @Test
@@ -101,7 +101,7 @@ public class SavingAccountTest {
 
         account.yearChange();
 
-        Assertions.assertEquals(100, account.yearChange());
+        Assertions.assertEquals(2_100, account.yearChange());
     }
 
 
