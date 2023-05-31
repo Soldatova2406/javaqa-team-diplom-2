@@ -53,7 +53,6 @@ public class CreditAccountTest {
         );
         account.pay(1000);
         Assertions.assertEquals(0, account.getBalance());
-
     }
 
     @Test
@@ -129,6 +128,7 @@ public class CreditAccountTest {
 
         Assertions.assertEquals(-230, account.getBalance());
     }
+
 
     @Test
     void getCreditLimitTest() {
