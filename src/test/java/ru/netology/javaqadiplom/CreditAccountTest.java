@@ -48,12 +48,12 @@ public class CreditAccountTest {
     void payOverTest() {
         CreditAccount account = new CreditAccount(
                 0,
-                5_000,
+                500,
                 15
         );
         account.pay(1000);
-        Assertions.assertEquals(-1000, account.getBalance());
-        System.out.println(account.balance);
+        Assertions.assertEquals(0, account.getBalance());
+
     }
 
     @Test
