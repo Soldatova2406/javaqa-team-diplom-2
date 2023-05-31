@@ -48,12 +48,11 @@ public class CreditAccountTest {
     void payOverTest() {
         CreditAccount account = new CreditAccount(
                 0,
-                5_000,
+                500,
                 15
         );
         account.pay(1000);
-        Assertions.assertEquals(-1000, account.getBalance());
-        System.out.println(account.balance);
+        Assertions.assertEquals(0, account.getBalance());
     }
 
     @Test
@@ -80,18 +79,18 @@ public class CreditAccountTest {
 
     }
 
-//    @Test
-//    void addWhenOver0Test() {
-//        CreditAccount account = new CreditAccount(
-//                500,
-//                5_000,
-//                15
-//        );
-//        account.add(1000);
-//        Assertions.assertEquals(1500, account.getBalance());
-//
-//
-//    }
+    @Test
+    void addWhenOver0Test() {
+        CreditAccount account = new CreditAccount(
+                500,
+                5_000,
+                15
+        );
+        account.add(1000);
+        Assertions.assertEquals(1500, account.getBalance());
+
+
+    }
 
     @Test
     void addNegativeTest() {
@@ -118,17 +117,18 @@ public class CreditAccountTest {
         Assertions.assertEquals(200, account.getBalance());
     }
 
-//    @Test
-//    void yearNegativeChangeTest() {
-//        CreditAccount account = new CreditAccount(
-//                -200,
-//                5_000,
-//                15
-//        );
-//        account.yearChange();
-//
-//        Assertions.assertEquals(-230, account.getBalance());
-//    }
+    @Test
+    void yearNegativeChangeTest() {
+        CreditAccount account = new CreditAccount(
+                -200,
+                5_000,
+                15
+        );
+        account.yearChange();
+
+        Assertions.assertEquals(-230, account.getBalance());
+    }
+
 
     @Test
     void getCreditLimitTest() {
