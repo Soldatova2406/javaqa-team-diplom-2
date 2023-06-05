@@ -141,4 +141,12 @@ public class CreditAccountTest {
         Assertions.assertEquals(5000, account.getCreditLimit());
 
     }
+
+    @Test
+    void throwsTest() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(0, 5000, -15);
+            account.getBalance();
+        });
+    }
 }
