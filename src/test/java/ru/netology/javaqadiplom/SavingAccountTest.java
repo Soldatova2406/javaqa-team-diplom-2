@@ -168,6 +168,7 @@ public class SavingAccountTest {
         });
 
     }
+
     @Test
     void trowTestIfNegativeInitialBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -180,6 +181,7 @@ public class SavingAccountTest {
         });
 
     }
+
     @Test
     void trowTestIfNegativeMinBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -192,6 +194,7 @@ public class SavingAccountTest {
         });
 
     }
+
     @Test
     void trowTestIfMinBalanceLessThanMaxBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
@@ -199,6 +202,18 @@ public class SavingAccountTest {
                     3000,
                     5000,
                     2000,
+                    10
+            );
+        });
+    }
+
+    @Test
+    void trowMaxBalanceNegative() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            SavingAccount account = new SavingAccount(
+                    3000,
+                    5000,
+                    -2000,
                     10
             );
         });

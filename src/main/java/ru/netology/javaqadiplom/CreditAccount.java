@@ -21,7 +21,22 @@ public class CreditAccount extends Account {
     public CreditAccount(int initialBalance, int creditLimit, int rate) {
         if (rate <= 0) {
             throw new IllegalArgumentException(
-                    "Накопительная ставка не может быть отрицательной, а у вас: " + rate
+                    "Ставка кредитования не может быть отрицательной, а у вас: " + rate
+            );
+        }
+        if (initialBalance < 0) {
+            throw new IllegalArgumentException(
+                    "Начальный баланс не может быть отрицательным, а у вас: " + initialBalance
+            );
+        }
+        if (creditLimit < 0) {
+            throw new IllegalArgumentException(
+                    "Кредитный лимит не может быть отрицательным, а у вас: " + creditLimit
+            );
+        }
+        if (initialBalance > creditLimit) {
+            throw new IllegalArgumentException(
+                    "Баланс не может быть больше кредитного лимита, а у вас: " + initialBalance
             );
         }
         this.balance = initialBalance;

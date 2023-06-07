@@ -120,10 +120,11 @@ public class CreditAccountTest {
     @Test
     void yearNegativeChangeTest() {
         CreditAccount account = new CreditAccount(
-                -200,
+                0,
                 5_000,
                 15
         );
+        account.pay(200);
         account.yearChange();
 
         Assertions.assertEquals(-230, account.getBalance());
@@ -143,14 +144,46 @@ public class CreditAccountTest {
     }
 
     @Test
-    void throwsTest() {
+    void throwsRateTest() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             CreditAccount account = new CreditAccount(
                     0,
                     5000,
                     -15
             );
-            account.getBalance();
+        });
+    }
+
+    @Test
+    void throwsInitialBalanceTest() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    -100,
+                    5000,
+                    15
+            );
+        });
+    }
+
+    @Test
+    void throwsCreditLimitTest() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    100,
+                    -5000,
+                    15
+            );
+        });
+    }
+
+    @Test
+    void throwsBalanceOverLimitTest() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    10_000,
+                    5000,
+                    15
+            );
         });
     }
 }
