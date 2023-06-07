@@ -145,7 +145,11 @@ public class CreditAccountTest {
     @Test
     void throwsTest() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            CreditAccount account = new CreditAccount(0, 5000, -15);
+            CreditAccount account = new CreditAccount(
+                    0,
+                    5000,
+                    -15
+            );
             account.getBalance();
         });
     }
